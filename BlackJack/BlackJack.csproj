@@ -78,6 +78,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converter\ImageConverter.cs" />
+    <Compile Include="Converter\PercentageConverter.cs" />
     <Compile Include="Converter\PriceConverter.cs" />
     <Compile Include="Model\Card.cs" />
     <Compile Include="Model\Player.cs" />

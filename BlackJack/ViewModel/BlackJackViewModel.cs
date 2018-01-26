@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 
 namespace BlackJack.ViewModel
 {
@@ -17,30 +18,8 @@ namespace BlackJack.ViewModel
         #region Fields
 
         private bool isDealerTurn = false;
-        private string playerCard1;
-        private string playerCard2;
-        private string playerCard3;
-        private string playerCard4;
-        private string playerCard5;
-        private string playerCard6;
-        private string playerCard7;
-        private string playerCard8;
-        private string playerCard9;
-        private string playerCard10;
-        private string playerCard11;
-
-        private string dealerCard1;
-        private string dealerCard2;
-        private string dealerCard3;
-        private string dealerCard4;
-        private string dealerCard5;
-        private string dealerCard6;
-        private string dealerCard7;
-        private string dealerCard8;
-        private string dealerCard9;
-        private string dealerCard10;
-        private string dealerCard11;
-
+        private List<string> playerHand;
+        private List<string> dealerHand;
         private int amountToWager;
         private int wallet;
         private int playerScore;
@@ -125,223 +104,22 @@ namespace BlackJack.ViewModel
             }
         }
 
-        public string PlayerCard1
+        public List<string> PlayerHand
         {
-            get { return playerCard1; }
+            get { return playerHand; }
             set
             {
-                playerCard1 = value;
-                RaisePropertyChanged("PlayerCard1");
+                playerHand = value;
+                RaisePropertyChanged(nameof(PlayerHand));
             }
         }
-
-        public string PlayerCard2
+        public List<string> DealerHand
         {
-            get { return playerCard2; }
+            get { return dealerHand; }
             set
             {
-                playerCard2 = value;
-                RaisePropertyChanged("PlayerCard2");
-            }
-        }
-
-        public string PlayerCard3
-        {
-            get { return playerCard3; }
-            set
-            {
-                playerCard3 = value;
-                RaisePropertyChanged("PlayerCard3");
-            }
-        }
-
-        public string PlayerCard4
-        {
-            get { return playerCard4; }
-            set
-            {
-                playerCard4 = value;
-                RaisePropertyChanged("PlayerCard4");
-            }
-        }
-
-        public string PlayerCard5
-        {
-            get { return playerCard5; }
-            set
-            {
-                playerCard5 = value;
-                RaisePropertyChanged("PlayerCard5");
-            }
-        }
-
-        public string PlayerCard6
-        {
-            get { return playerCard6; }
-            set
-            {
-                playerCard6 = value;
-                RaisePropertyChanged("PlayerCard6");
-            }
-        }
-
-        public string PlayerCard7
-        {
-            get { return playerCard7; }
-            set
-            {
-                playerCard7 = value;
-                RaisePropertyChanged("PlayerCard7");
-            }
-        }
-
-        public string PlayerCard8
-        {
-            get { return playerCard8; }
-            set
-            {
-                playerCard8 = value;
-                RaisePropertyChanged("PlayerCard8");
-            }
-        }
-
-        public string PlayerCard9
-        {
-            get { return playerCard9; }
-            set
-            {
-                playerCard9 = value;
-                RaisePropertyChanged("PlayerCard9");
-            }
-        }
-
-        public string PlayerCard10
-        {
-            get { return playerCard10; }
-            set
-            {
-                playerCard10 = value;
-                RaisePropertyChanged("PlayerCard10");
-            }
-        }
-
-        public string PlayerCard11
-        {
-            get { return playerCard11; }
-            set
-            {
-                playerCard11 = value;
-                RaisePropertyChanged("PlayerCard11");
-            }
-        }
-
-        public string DealerCard1
-        {
-            get { return dealerCard1; }
-            set
-            {
-                dealerCard1 = value;
-                RaisePropertyChanged("DealerCard1");
-            }
-        }
-
-        public string DealerCard2
-        {
-            get { return dealerCard2; }
-            set
-            {
-                dealerCard2 = value;
-                RaisePropertyChanged("DealerCard2");
-            }
-        }
-
-        public string DealerCard3
-        {
-            get { return dealerCard3; }
-            set
-            {
-                dealerCard3 = value;
-                RaisePropertyChanged("DealerCard3");
-            }
-        }
-
-        public string DealerCard4
-        {
-            get { return dealerCard4; }
-            set
-            {
-                dealerCard4 = value;
-                RaisePropertyChanged("DealerCard4");
-            }
-        }
-
-        public string DealerCard5
-        {
-            get { return dealerCard5; }
-            set
-            {
-                dealerCard5 = value;
-                RaisePropertyChanged("DealerCard5");
-            }
-        }
-
-        public string DealerCard6
-        {
-            get { return dealerCard6; }
-            set
-            {
-                dealerCard6 = value;
-                RaisePropertyChanged("DealerCard6");
-            }
-        }
-
-        public string DealerCard7
-        {
-            get { return dealerCard7; }
-            set
-            {
-                dealerCard7 = value;
-                RaisePropertyChanged("DealerCard7");
-            }
-        }
-
-        public string DealerCard8
-        {
-            get { return dealerCard8; }
-            set
-            {
-                dealerCard8 = value;
-                RaisePropertyChanged("DealerCard8");
-            }
-        }
-
-        public string DealerCard9
-        {
-            get { return dealerCard9; }
-            set
-            {
-                dealerCard9 = value;
-                RaisePropertyChanged("DealerCard9");
-            }
-        }
-
-        public string DealerCard10
-        {
-            get { return dealerCard10; }
-            set
-            {
-                dealerCard10 = value;
-                RaisePropertyChanged("DealerCard10");
-            }
-        }
-
-        public string DealerCard11
-        {
-            get { return dealerCard11; }
-            set
-            {
-                dealerCard11 = value;
-                RaisePropertyChanged("DealerCard11");
+                dealerHand = value;
+                RaisePropertyChanged(nameof(DealerHand));
             }
         }
 
@@ -350,7 +128,7 @@ namespace BlackJack.ViewModel
         public RelayCommand StayCommand { get; private set; }
         public RelayCommand SplitCommand { get; private set; }
         public RelayCommand MakeWagerCommand { get; private set; }
-
+        
         #endregion
 
         public BlackJackViewModel()
@@ -550,6 +328,8 @@ namespace BlackJack.ViewModel
 
             player.playersHand = new List<Card>();
             dealer.playersHand = new List<Card>();
+            player.playersCardImages = new List<string>();
+            dealer.playersCardImages = new List<string>();
 
             DealPlayerCard(player);
             DealPlayerCard(dealer);
@@ -571,35 +351,15 @@ namespace BlackJack.ViewModel
 
         private void ResetCardImages()
         {
-            PlayerCard1 = null;
-            PlayerCard2 = null;
-            PlayerCard3 = null;
-            PlayerCard4 = null;
-            PlayerCard5 = null;
-            PlayerCard6 = null;
-            PlayerCard7 = null;
-            PlayerCard8 = null;
-            PlayerCard9 = null;
-            PlayerCard10 = null;
-            PlayerCard11 = null;
-
-            DealerCard1 = null;
-            DealerCard2 = null;
-            DealerCard3 = null;
-            DealerCard4 = null;
-            DealerCard5 = null;
-            DealerCard6 = null;
-            DealerCard7 = null;
-            DealerCard8 = null;
-            DealerCard9 = null;
-            DealerCard10 = null;
-            DealerCard11 = null;
+            PlayerHand = null;
+            DealerHand = null;
         }
 
         private void DealerTurn(Player dealer)
         {
             PlayerScore = player.Score;
-            SetCardImageProperty(dealer);
+            DealerHand[1] = dealer.playersHand[1].CardImage.ToString() + ".png";
+            RaisePropertyChanged(nameof(DealerHand));
 
             //dealer will be dealt unless player has blackjack
             if (!(player.Score == 21 && player.playersHand.Count == 2))
@@ -668,20 +428,29 @@ namespace BlackJack.ViewModel
         private void DealPlayerCard(Player _player)
         {
             _player.playersHand.Add(Deck.First());
+            _player.playersCardImages.Add(Deck.First().CardImage.ToString() + ".png");
             Deck.Remove(Deck.First());
             SetPlayerScore(_player);
 
             if (_player.PlayerNumber == 1)
             {
+                PlayerHand = _player.playersCardImages;
                 PlayerScore = _player.Score;
+            } else
+            {
+                
+                if (_player.playersHand.Count == 2)
+                {
+                    DealerHand[1] = "face_down.png";
+                } 
+                DealerHand = _player.playersCardImages;
             }
 
-            SetCardImageProperty(_player);
             if (didBust(_player) && _player.PlayerNumber == 1)
             {
-                CommandsCanExecuteChange();
                 IsDealerTurn = true;
             }
+            CommandsCanExecuteChange();
         }
 
         private void SetPlayerScore(Player _player)
@@ -737,81 +506,6 @@ namespace BlackJack.ViewModel
             }
 
             return acesValue;
-        }
-
-        private void SetCardImageProperty(Player _player)
-        {
-            int cardNumberToSet = _player.playersHand.Count;
-
-            if (_player.PlayerNumber == 1)
-            {
-                switch (cardNumberToSet)
-                {
-                    case 1:
-                        PlayerCard1 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 2:
-                        PlayerCard2 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 3:
-                        PlayerCard3 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 4:
-                        PlayerCard4 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 5:
-                        PlayerCard5 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 6:
-                        PlayerCard6 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 7:
-                        PlayerCard7 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else
-            {
-                switch (cardNumberToSet)
-                {
-                    case 1:
-                        DealerCard1 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 2:
-                        if (!IsDealerTurn)
-                        {
-                            DealerCard2 = "face_down.png";
-                            break;
-                        }
-                        DealerCard2 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 3:
-                        DealerCard3 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 4:
-                        DealerCard4 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 5:
-                        DealerCard5 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 6:
-                        DealerCard6 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    case 7:
-                        DealerCard7 = GetCardImageName(_player, cardNumberToSet);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-        }
-
-        private static string GetCardImageName(Player _player, int cardNumberToSet)
-        {
-            return _player.playersHand[cardNumberToSet - 1].CardImage.ToString() + ".png";
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace BlackJack.Model
 {
@@ -12,7 +13,6 @@ namespace BlackJack.Model
         public int Value { get; set; }
         public string CardName { get; set; }
         public CardImages CardImage { get; set; }
-
 
         public Card()
         {

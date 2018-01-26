@@ -6,6 +6,8 @@ namespace BlackJack.Model
     public class Player : ObservableObject
     {
         public List<Card> playersHand;
+        public List<string> playersCardImages;
+
         public int Score { get; set; }
         public int PlayerNumber { get; set; }
         public int Wager { get; set; }

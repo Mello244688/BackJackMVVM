@@ -19,6 +19,7 @@
 
         <converter:ImageConverter x:Key="localImageConverter"></converter:ImageConverter>
         <converter:PriceConverter x:Key="localPriceConverter"></converter:PriceConverter>
+        <converter:PercentageConverter x:Key="localPercentageConverter"></converter:PercentageConverter>
 
     </Application.Resources>
 </Application>

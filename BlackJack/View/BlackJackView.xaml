@@ -33,13 +33,14 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-
+                
                 <Viewbox Grid.Row="0" Stretch="Uniform">
-                    <Label Content="Dealer Score: " HorizontalContentAlignment="Right" />
-                </Viewbox>
-                <Viewbox Grid.Row="1" Stretch="Uniform">
                     <Label Content="Player Score: " HorizontalContentAlignment="Right" />
                 </Viewbox>
+                <Viewbox Grid.Row="1" Stretch="Uniform">
+                    <Label Content="Dealer Score: " HorizontalContentAlignment="Right" />
+                </Viewbox>
+                
                 <Viewbox Grid.Row="4" Stretch="Uniform">
                     <Label Content="Result: " HorizontalContentAlignment="Right" />
                 </Viewbox>
@@ -54,10 +55,10 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Viewbox Grid.Row="0" Stretch="Uniform" >
+                <Viewbox Grid.Row="1" Stretch="Uniform" >
                     <TextBlock Text="{Binding DealerScore}" TextAlignment="Center" />
                 </Viewbox>
-                <Viewbox Grid.Row="1" Stretch="Uniform">
+                <Viewbox Grid.Row="0" Stretch="Uniform">
                     <TextBlock Text="{Binding PlayerScore}" TextAlignment="Center" />
                 </Viewbox>
                 <Viewbox Grid.Row="4" Stretch="Uniform">
